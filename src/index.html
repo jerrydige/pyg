@@ -24,6 +24,10 @@
     <!-- 分类 -->
     <div class="pyg_cates"></div>
     <!-- 分类 -->
+
+    <!-- 商品列表 -->
+    <div class="pyg_goodslist"></div>
+    <!-- 商品列表 -->
   </div>
 
 
@@ -54,6 +58,28 @@
         {{/each}}
       </div>
     </div>
+
+</script>
+
+<!-- 商品列表 -->
+<script type="text/html" id="listTpl">
+  {{each arr item1 value1}}
+  <div class="goods_item">
+    <img src="{{item1.group_img}}" alt="" class="group_img">
+    <ul class="goods">
+      {{each item1.goods item2 index2}}
+      <li>
+        <a href="#" class="goods_detail">
+          <img src="{{item2.goods_small_logo}}" class="goods_small_logo">
+          <div class="goods_name">{{item2.goods_name}}</div>
+          <div class="goods_price">&yen;{{item2.goods_price}}</div>
+        </a>
+        <a href="#" class="goods_similar mui-btn mui-btn-primary mui-btn-outlined">找相似</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{/each}}
 
 </script>
 

@@ -4,6 +4,7 @@ $(function () {
   function init() {
     swiperdata();
     catitems();
+    goodslist();
   }
 
   // 轮播图
@@ -14,9 +15,7 @@ $(function () {
       success: function (result) {
         if (result.meta.status === 200) {
           let data = result.data;
-          let html = template("swiperTpl", {
-            arr: data
-          });
+          let html = template("swiperTpl", { arr: data });
           $(".pyg_slide").html(html);
 
           var gallery = mui('.mui-slider');
@@ -50,5 +49,18 @@ $(function () {
         console.log("失败", result);
       }
     });
+  }
+
+  // 商品列表
+  function goodslist() {
+    $.get("http://api.pyg.ak48.xyz/api/public/v1/home/goodslist",result=>{
+        if(result.meta.status==200){
+          let data = result.data;
+          let html = template("listTpl",{arr:data});
+          $(".pyg_goodslist").html(html);
+        } else {
+          console.log("失败", result);
+        }
+    })
   }
 })

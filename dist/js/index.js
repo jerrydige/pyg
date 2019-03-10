@@ -6,6 +6,7 @@ $(function () {
   function init() {
     swiperdata();
     catitems();
+    goodslist();
   } // 轮播图
 
 
@@ -45,6 +46,21 @@ $(function () {
         }
 
         $(".pyg_cates").html(html);
+      } else {
+        console.log("失败", result);
+      }
+    });
+  } // 商品列表
+
+
+  function goodslist() {
+    $.get("http://api.pyg.ak48.xyz/api/public/v1/home/goodslist", function (result) {
+      if (result.meta.status == 200) {
+        var data = result.data;
+        var html = template("listTpl", {
+          arr: data
+        });
+        $(".pyg_goodslist").html(html);
       } else {
         console.log("失败", result);
       }
