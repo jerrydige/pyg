@@ -71,23 +71,52 @@ img {
           animation: fa-spin 1s infinite linear;
 }
 .pyg_view {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  overflow: hidden;
+  position: relative;
 }
-.pyg_view .left_box {
-  width: 80px;
-  overflow: scroll;
+.list_header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+  background-color: #0094ff;
 }
-.pyg_view .left_box .left_menu {
+.list_header span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #fff;
+}
+.list_header i {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #fff;
+  font-size: 20px;
+}
+.pyg_view .list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.pyg_view .left_box .left_menu li {
-  height: 40px;
-  font-size: 14px;
+.pyg_view .list li {
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.pyg_view .list li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+}
+.pyg_view .list li a .item_left {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -98,49 +127,33 @@ img {
       -ms-flex-align: center;
           align-items: center;
 }
-.pyg_view .left_box .left_menu .active {
-  border-left: 5px solid #0094ff;
-  background-color: #fff;
+.pyg_view .list li a .item_left img {
+  width: 70%;
 }
-.pyg_view .right_box {
+.pyg_view .list li a .item_right {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  overflow: scroll;
-  background-color: #fff;
-}
-.pyg_view .right_box .right_item .item_title {
-  height: 40px;
+  overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-left: 5px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+.pyg_view .list li a .item_right .goods_name {
+  color: #666;
   font-size: 14px;
-  color: #0094ff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-.pyg_view .right_box .right_item .item_list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-.pyg_view .right_box .right_item .item_list li {
-  width: 33.33%;
-}
-.pyg_view .right_box .right_item .item_list li a {
-  text-align: center;
-  font-size: 14px;
-  color: #000;
-}
-.pyg_view .right_box .right_item .item_list li a img {
-  width: 80%;
+.pyg_view .list li a .item_right .goods_price {
+  color: red;
 }
 
-/*# sourceMappingURL=category.css.map */
+/*# sourceMappingURL=goods_list.css.map */

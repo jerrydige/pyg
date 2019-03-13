@@ -48,6 +48,14 @@ $(function () {
       arr: rightData
     });
     $(".right_box").html(rightHtml);
+    var imgLength = $(".right_box img").length;
+    $(".right_box img").on("load", function () {
+      imgLength--;
+
+      if (imgLength === 0) {
+        var rightScroll = new IScroll(".right_box");
+      }
+    });
   }
 });
 //# sourceMappingURL=category.js.map

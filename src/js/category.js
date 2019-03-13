@@ -1,8 +1,9 @@
-$(function() {
+$(function () {
 
-    let CateDatas;  //全局变量
+    let CateDatas; //全局变量
 
     init();
+
     function init() {
         categories();
         eventList();
@@ -10,7 +11,7 @@ $(function() {
 
 
     function eventList(params) {
-        $(".left_menu").on("tap","li",function() {
+        $(".left_menu").on("tap", "li", function () {
             $(this).addClass("active").siblings().removeClass("active");
 
             let index = $(this).index();
@@ -19,20 +20,20 @@ $(function() {
     }
 
     function categories() {
-        $.get("http://api.pyg.ak48.xyz/api/public/v1/categories",result=>{
-            if(result.meta.status == 200) {
+        $.get("http://api.pyg.ak48.xyz/api/public/v1/categories", result => {
+            if (result.meta.status == 200) {
                 CateDatas = result.data;
                 renderLeft();
                 renderRight(0);
             } else {
-                console.log("失败",result)
+                console.log("失败", result)
             }
         })
     }
 
     function renderLeft() {
         let leftHtml = "";
-        for (let i = 0; i < CateDatas.length; i++){
+        for (let i = 0; i < CateDatas.length; i++) {
             let tmpHtml = `
                 <li class="${i == 0 ? "active":""}">
                     ${CateDatas[i].cat_name}
@@ -49,7 +50,19 @@ $(function() {
 
         let rightData = item2Obj.children;
 
-        let rightHtml = template("rightTpl",{arr : rightData});
+        let rightHtml = template("rightTpl", {
+            arr: rightData
+        });
         $(".right_box").html(rightHtml);
+
+        let imgLength = $(".right_box img").length;
+
+        $(".right_box img").on("load", function () {
+            imgLength--;
+
+            if (imgLength === 0) {
+                let rightScroll = new IScroll(".right_box");
+            }
+        })
     }
 })

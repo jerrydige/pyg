@@ -30,12 +30,6 @@
     <!-- 商品列表 -->
   </div>
 
-
-
-
-
-
-
   <!-- 脚部 -->
   @@include("pyg_footer.html")
 </body>
@@ -74,7 +68,7 @@
           <div class="goods_name">{{item2.goods_name}}</div>
           <div class="goods_price">&yen;{{item2.goods_price}}</div>
         </a>
-        <a href="#" class="goods_similar mui-btn mui-btn-primary mui-btn-outlined">找相似</a>
+        <a href="goods_list.html?cid={{item2.cat_id}}" class="goods_similar mui-btn mui-btn-primary mui-btn-outlined">找相似</a>
       </li>
       {{/each}}
     </ul>

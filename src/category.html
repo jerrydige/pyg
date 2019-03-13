@@ -36,7 +36,7 @@
         <ul class="item_list">
             {{each item.children item2 index2}}
             <li>
-                <a href="javascript:;">
+                <a href="goods_list.html?cid={{item2.cat_id}}">
                     <img src="http://api.pyg.ak48.xyz/{{item2.cat_icon}}" alt="">
                     <div class="item_name">{{item2.cat_name}}</div>
                 </a>
@@ -51,5 +51,6 @@
 <script src="./lib/mui/js/mui.js"></script>
 <script src="./lib/zepto/zepto.js"></script>
 <script src="./lib/arttemplate/template-web.js"></script>
+<script src="./lib/iscroll/iscroll.js"></script>
 <script src="./js/common.js"></script>
 <script src="./js/category.js"></script>
